@@ -1,11 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Examen JS LLM - 04/2025</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/index.css">
 </head>
-<body>
-    <h1>Examen 2a</h1>
+
+<body class="light-mode">
+    <header id="header" class="">
+        <div>
+            <img src="./img/esliceu.jpg" alt="logo" title="Logo Es Liceu">
+        </div>
+        <h1>Llenguatges de Marques - Examen JavaScript i JSON - 10/04/2025</h1>
+    </header>
+    <main>
+        <ol>
+            <!-- Exercici 1: Àrea del cercle -->
+            <li class="enunciat">
+                <div class="titulo">1. Calcular l'àrea d'un cercle (25 punts)</div>
+                <div class="contenedor">
+                    <div class="left">
+                        <div class="explicacio">
+                            <p>
+                                Donat un radi (entre 1 i 125), calcula l'àrea del cercle (π · r²), arrodonit a 3
+                                decimals.
+                            </p>
+                            <ul>
+                                <li>Avisau a l'usuari si intenta introduir valor majors a 125 ni menors a 1.</li>
+                                <li>El cercle blau ha de crèixer en la mesura dels pixels que posi l'usuari. <br>
+                                    <span class="pista">(Pista, modificar un atribut de l'SVG)</span></li>
+                                <li>El botó "Neteja" esborra el resultat, el valor introduit i posa el cercle a la
+                                    mida inicial.</li>
+                            </ul>
+                        </div>
+                        <div class="exercici">
+                            <p>
+                                <label for="radi">Radi:</label>
+                                <input type="number" id="radi" step="any" min="1" max="125">
+                            </p>
+
+                            <p>
+                                <button id="calculaArea">Calcula</button>
+                                <button id="netejaArea">Neteja</button>
+                            </p>
+
+                            <p>Àrea: <span id="areaResult"></span></p>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <svg id="circleSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"
+                            preserveAspectRatio="xMidYMid meet">
+                            <circle id="circleElement" cx="125" cy="125" r="50" fill="lightblue" />
+                        </svg>
+                    </div>
+                    <div class="right">
+                        <img src="img/area_circulo.png" alt="Imatge àrea cercle">
+                    </div>
+                </div>
+            </li>
+
+            <!-- Exercici 2: Casino - Ruleta -->
+            <li class="enunciat">
+                <div class="titulo">2. Casino - Ruleta (45 punts)</div>
+                <div class="contenedor">
+                    <div class="left">
+                        <div class="explicacio">
+                            <p>
+                                Fes girar una ruleta que es deté en un número aleatori entre 0 i 36. L'usuari fa la seva
+                                aposta introduint un número (1-36) i la quantitat de diners.
+                            </p>
+                            <ul>
+                                <li>El botó "Gira Ruleta" es canvia per "Atura" i canvia de color de fons quan s'ha
+                                    pitjat.</li>
+                                <li>El botó "Gira Ruleta" genera constantment números aleatoris entre el 0 i el 36 fins
+                                    que es pitja el botó "atura"</li>
+                                <li>S'han de pintar els números parells de negre i els imparells de vermell. El 0 és
+                                    verd.</li>
+                                <li>Afegeix un textarea a la dreta que mostri un historial de les apostes jugades pel
+                                    usuari. Cada línia haurà de tenir el format: "- Has apostat {cantidad} € al
+                                    número {numero}. Ha sortit el {resultat}. Has {guanyat/perdut}."</li>
+                                <li>El botó "Neteja" esborra el textarea, els inputs i torna a posar el botó "Gira
+                                    Ruleta".</li>
+                            </ul>
+                        </div>
+                        <div class="inputs">
+                            <label for="aposta">Número Aposta:</label>
+                            <input type="number" id="aposta" min="1" max="36" class="small-input">
+                            <label for="diners">Diners:</label>
+                            <input type="number" id="diners" min="1" class="small-input">
+                        </div>
+                        <div class="botons">
+                            <button id="giraRuleta">Gira Ruleta</button>
+                            <button id="netejaRuleta">Neteja</button>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <div id="ruletaDisplay">--</div>
+                    </div>
+                    <div class="right">
+                        <textarea id="historialRuleta" cols="30" rows="10" readonly></textarea>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Exercici 3: Carregar i mostrar dades des d'un JSON (30 punts) -->
+            <li class="enunciat">
+                <div class="titulo">3. Carregar i mostrar dades (30 punts)</div>
+                <div class="contenedor">
+                    <div class="left">
+                        <div class="explicacio">
+                            <p>
+                                Carrega un fitxer JSON i mostra les dades en un desplegable. Quan es selecciona un
+                                element, mostra la seva imatge i la seva descripció a la dreta.
+                            </p>
+                            <ul>
+                                <li>Carrega el fitxer JSON <code>brainrot.json</code> des de la carpeta
+                                    <code>/json/</code>.
+                                </li>
+                                <li>Quan selecciones un element del desplegable, a la dreta s'ha de mostrar la seva
+                                    imatge i la descripció.
+                                    <br><span class="pista">Pista: fer servir l'índex de l'array per construir les opcions del
+                                    desplegable i carregar aquest element del JSON.</span></li>
+                                <li>El botó "Neteja" esborra el desplegable i la imatge.</li>
+                            </ul>
+                        </div>
+                        <div class="botons">
+                            <button id="carregaJson">Carrega Dades</button>
+                            <button id="netejaJson">Neteja</button>
+                        </div>
+                        <div class="inputs">
+                            <label for="llistat">Llista:</label>
+                            <select id="llistat"></select>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div id="detallElement">
+                            <!-- Aquí es mostrarà la imatge i la descripció -->
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        </ol>
+    </main>
+    <footer>
+        &copy; Daniel Martínez
+    </footer>
 </body>
+
 </html>

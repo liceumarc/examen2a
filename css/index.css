@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --light-bg: #dceadb;
+  --light-text: #000;
+  --light-border: black;
+  --light-footer-bg: #f2f2f2;
+  --btn-bg: cadetblue;
+  --btn-text: white;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+header {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+main {
+  margin: 1% 5%;
+  border: 5px solid var(--light-border);
+  border-radius: 25px;
+  padding: 20px;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+ol {
+  list-style: decimal;
+  padding-left: 20px;
+}
+
+li.enunciat {
+  margin-bottom: 40px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+li.enunciat:last-child {
+  border-bottom: none;
+}
+
+.titulo {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: large;
+}
+
+/* Contenidor dividit en columnes */
+.contenedor {
+  display: flex;
+  gap: 20px;
+}
+
+/* Columna esquerra: inputs i botons */
+.left {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.left .botons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Columna central (exercici 1) */
+.center {
+  flex: 1 1 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Columna dreta: per mostrar sortida o select */
+.right {
+  flex: 1 1 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.explicacio {
+  font-size: small;
+  margin-bottom: 10px;
+}
+
+.exercici {
+  font-size: medium;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 5px;
+  padding: 6px 8px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+input {
+  margin: 5px;
+}
+
+/* Inputs petits per a l'exercici 2 */
+.small-input {
+  width: 50px;
+}
+
+select {
+  margin: 5px;
+  width: 200px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  color: var(--light-text);
+}
+
+/* Caixa de ruleta: 100x100 px, font gran */
+#ruletaDisplay {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4em;
+  margin: 10px;
+}
+
+.pista {
+  font-style: italic;
+  color: orangered
+}

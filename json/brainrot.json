@@ -1,0 +1,37 @@
+[
+  {
+    "nome": "Bombardino Crocodillo",
+    "descrizione": "Un bombardiere militare con la testa di coccodrillo, noto per la sua natura aggressiva e il suo amore per le bombe.",
+    "immagine_url": "https://static.wikia.nocookie.net/brainrotnew/images/0/07/Bombardiro_crocodilo_.webp"
+  },
+  {
+    "nome": "Tralalero Tralala",
+    "descrizione": "Uno squalo unico nel suo genere con tre gambe—due al posto delle pinne laterali e una terza alla fine della coda. Invece di nuotare come gli altri squali, cammina sul fondo dell'oceano con sorprendente agilità. Aggiungendo alla sua unicità, Tralalero sfoggia un paio di eleganti scarpe Nike blu, che gli conferiscono sia aderenza che un'indiscutibile sicurezza mentre si muove nelle profondità.",
+    "immagine_url": "https://static.wikia.nocookie.net/brainrotnew/images/a/ac/Tralalero_tralala.jpg"
+  },
+  {
+    "nome": "Brr Brr Patapim",
+    "descrizione": "Un ibrido tra una scimmia e una foresta con grandi piedi, noto per il suo aspetto surreale. Vive nella foresta e un giorno ha trovato un cappello dorato con dentro una rana blu di nome Slim, che faceva 'Brr Brr'.",
+    "immagine_url": "https://static.wikia.nocookie.net/brainrotnew/images/f/f7/Brr_Brr_Patapim.png"
+  },
+  {
+    "nome": "Lirili Larila",
+    "descrizione": "Un elefante nel deserto che cammina qua e là. Con il suo guscio e un orologio che fa tic tac, le spine del cactus gli fanno venire un flashback.",
+    "immagine_url": "https://static.wikia.nocookie.net/brainrotnew/images/f/f1/Lirili_rili_ralila.png"
+  },
+  {
+    "nome": "Bombombini Gusini",
+    "descrizione": "Fratello di Bombardiro Crocodilo, è un'oca antropomorfa con caratteristiche militari, spesso rappresentata con un elmetto e una natura combattiva.",
+    "immagine_url": "https://static.wikia.nocookie.net/brainrotnew/images/e/e0/Bombombini_Gusini.png"
+  },
+  {
+    "nome": "Chimpanzini Bananini",
+    "descrizione": "Un piccolo scimpanzé con una passione per le banane, spesso visto con un casco da pilota e occhiali da aviatore.",
+    "immagine_url": "https://static.wikia.nocookie.net/brainrotnew/images/5/5c/ChimpanziniBananini.jpg"
+  },
+  {
+    "nome": "Tung Tung Tung Sahur",
+    "descrizione": "Un personaggio simile a Brr Brr Patapim, ma originario dei meme indonesiani, rappresentato come un ibrido tra un albero e una creatura antropomorfa.",
+    "immagine_url": "https://static.wikia.nocookie.net/brainrotnew/images/d/df/Anomali_tung_tung_tung.png"
+  }
+]
