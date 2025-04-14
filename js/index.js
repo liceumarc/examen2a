@@ -21,15 +21,15 @@ function calculaArea() {
     if(parseInt(inputRadi.value) < MIN_RADI || parseInt(inputRadi.value) > MAX_RADI){
         alert("El número no es válido");
     }
-
     let calculaArea = PI * Math.pow(parseInt(inputRadi.value), 2);
-    
-    spanAreaResult.textContent=calculaArea;
-
+    spanAreaResult.textContent=calculaArea.toFixed(3);
+    circleElement.setAttribute("r", inputRadi.value);
 }
 
 function netejaArea() {
     spanAreaResult.textContent="";
+    inputRadi.value="";
+    circleElement.setAttribute("r", 50);
 }
 
 //EXERCICI 2 ----------------------------------------------
@@ -40,7 +40,8 @@ const btnGiraRuleta = document.querySelector('#giraRuleta');
 const btnNetejaRuleta = document.querySelector('#netejaRuleta');
 const ruletaDisplay = document.querySelector('#ruletaDisplay');
 const historialRuleta = document.querySelector('#historialRuleta');
-
+const rootStyles = getComputedStyle(document.documentElement);
+const bgnBgColor = rootStyles.getPropertyValue('--bgn-bg-color').trim();
 
 // EVENTS - Exercici 2
 btnGiraRuleta.onclick = giraRuleta;
@@ -51,9 +52,20 @@ function generaNumRuleta() {
     return Math.round(Math.random()* 35);
 }
 
-function actualizarNumero(){
+function actualizarNumeroAndColor(){
     numeroActual = generaNumRuleta();
     ruletaDisplay.textContent = numeroActual;
+
+    if(parseInt(numeroActual) % 2 == 0){
+        ruletaDisplay.style.backgroundColor = "red";
+        ruletaDisplay.style.color = "white";
+    } else if(numeroActual % 2 !== 0 && !0){
+        ruletaDisplay.style.backgroundColor = "black";
+        ruletaDisplay.style.color = "white";
+    } else {
+        ruletaDisplay.style.backgroundColor = "green";
+        ruletaDisplay.style.color = "white";
+    }
 }
 
 let ruletaGirando = false;
@@ -62,22 +74,23 @@ let interval = null;
 function iniciar(){
     ruletaGirando = true;
     btnGiraRuleta.textContent = "Parar";
-    actualizarNumero();
-    interval = setInterval(actualizarNumero, 500);
+    actualizarNumeroAndColor();
+    interval = setInterval(actualizarNumeroAndColor, 500);
 }
 
 function parar(){
     clearInterval(interval);
     ruletaGirando = false;
     btnGiraRuleta.textContent = "Iniciar";
-    if(parseInt(numeroActual) % 2 == 0){
-        ruletaDisplay.style.backgroundColor = "red";
-    } else if(numeroActual % 2 !== 0 && !0){
-        ruletaDisplay.style.backgroundColor = "black";
-    } else {
-        ruletaDisplay.style.backgroundColor = "green";
+
+    let dineroApostado = parseInt(inputDiners.value);
+    let numeroApostado = parseInt(inputAposta.value);
+
+    if (numeroActual == numeroApostado) {
+        historialRuleta.textContent += `Has apostado al número ${numeroActual} y has ganado ${dineroApostado * 32}€\n`;
+    } else if(numeroActual != numeroApostado) {
+        historialRuleta.textContent += `Has apostado al número ${numeroActual} y has perdido ${dineroApostado}€\n`;
     }
-    historialRuleta.textContent += `Has apostat: ${numeroActual}\n`
 }
 
 function giraRuleta() {
@@ -89,7 +102,13 @@ function giraRuleta() {
 }
 
 function netejaRuleta() {
-
+    parar();
+    ruletaDisplay.textContent = "--";
+    ruletaDisplay.style.color = "black";
+    ruletaDisplay.style.backgroundColor = bgnBgColor;
+    historialRuleta.textContent = "";
+    inputAposta.value = "";
+    inputDiners.value = "";
 }
 
 
@@ -107,6 +126,8 @@ selectLlistat.onchange = mostraDetall;
 btnNetejaJson.onclick = netejaJson;
 
 // FUNCIONS Exercici 3
+let datosPersonajes = [];
+
 function carregaDades() {
     fetch('./json/brainrot.json').then(response => {
         if (response.ok){
@@ -115,19 +136,26 @@ function carregaDades() {
             throw new Error('Error al cargar el archivo JSON');
         }
     }).then(data => {
-
-        data.forEach(usuario => {
-            const select = document.createElement("option");
-            select.value = `${usuario}`;
-            selectLlistat.textContent = select;
-        })
-    })
-}
+        datosPersonajes = data;
+        let numberElement = 0;
+        for (const element of data) {
+            const option = document.createElement('option');
+            option.value = numberElement++;
+            option.textContent = element.nome;
+            selectLlistat.appendChild(option);
+        }
+    }
+)};
 
 function mostraDetall() {
-
+    let selectedOption = selectLlistat.value;
+    detallElement.innerHTML = 
+    `<h2>${datosPersonajes[selectedOption].nome}</h2>` + 
+    `<p>${datosPersonajes[selectedOption].descrizione}</p>` + 
+    `<img src="${datosPersonajes[selectedOption].immagine_url}" alt="${datosPersonajes[selectedOption].nome}">`;
 }
 
 function netejaJson() {
-
+    selectLlistat.innerHTML = "";
+    detallElement.innerHTML = "";
 }
